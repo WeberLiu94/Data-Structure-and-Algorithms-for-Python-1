@@ -10,12 +10,12 @@ class Solution:
         #循环版本
         fn_1 = 1
         fn_2 = 0
-        while(n):
+        while(n > 1):
             fn_1 = fn_1 + fn_2
             fn_2 = fn_1 - fn_2
             n -= 1
-        return fn_2
+        return fn_1
 
 
 s = Solution()
-print(s.Fibonacci(3))
+print(s.Fibonacci(6))

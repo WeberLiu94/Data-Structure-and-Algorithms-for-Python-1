@@ -3,7 +3,6 @@ def BubbleSort(array):
     length = len(array)
     for i in range(length):
         for j in range(length-1, i, -1):
-            print("123")
             if array[j] < array[j-1]:
                 array[j], array[j-1] = array[j-1], array[j]
     return array
@@ -18,7 +17,6 @@ def BubbleSort_advance(array):
         if Flag == True:
             Flag = False
             for j in range(length-1, i, -1):
-                print("123")
                 if array[j] < array[j-1]:
                     array[j], array[j-1] = array[j-1], array[j]
                     Flag = True
