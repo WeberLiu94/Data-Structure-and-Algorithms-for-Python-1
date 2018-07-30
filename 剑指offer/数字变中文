@@ -1,0 +1,30 @@
+number = 1
+
+ge = number%10
+shi = number//10%10
+bai = number//100%10
+qian = number//1000%10
+wan = number//10000%10
+list = []
+list.append(str(wan)+"W")
+list.append(str(qian)+'Q')
+list.append(str(bai)+"B")
+list.append(str(shi)+'S')
+if ge !=0:
+    list.append(str(ge))
+for i in range(len(list)):
+    if '0' in list[i]:
+        list[i] = 'L'
+while(list[-1] =='L'):
+    list.pop()
+for i in range(len(list)-1):
+    if list[i] == 'L' and list[i+1]=='L':
+        list[i] = ""
+while(list[0] ==''):
+    list.pop(0)
+while (list[0] == 'L'):
+    list.pop(0)
+result = "".join(list)
+
+print(list)
+print(result)

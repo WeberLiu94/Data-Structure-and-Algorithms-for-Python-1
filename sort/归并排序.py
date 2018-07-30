@@ -25,14 +25,27 @@ def merge_sort(lists):
     else:
         middle = len(lists) // 2
         left = merge_sort(lists[:middle])
-        print(left)
         right = merge_sort(lists[middle:])
-        print(right)
         result = merge(left, right)
-        print(result)
     return result
 
+#非递归版本
+def merge_sort2(L):
+    length = len(L)
+    for i in range(length):
+        L[i] = [L[i]] #将序列变成列表
+    while(length!=1): #迭代合并数组
+        c = []
+        if length % 2 == 1:#若数组数量为单数，则先将后面的合并
+            L[-2] = merge(L[-1], L[-2])
+            L.pop() #将最后一个弹出
+            length = len(L)#更新长度
+        for i in range(0, length, 2): #数组两两合并
+            c.append(merge(L[i], L[i+1]))
+        L = c[:]#迭代获取最新的数组
+        length = len(L)#更新数组长度，为下一次循环次数提供参考
+    return c[0] #返回最终结果
 
 if __name__ == '__main__':
-    a = [4, 7, 8, 3, 5, 9]
-    print(merge_sort(a))
+    a = [4, 7, 8, 3, 5, 9, 10]
+    print(merge_sort2(a))
